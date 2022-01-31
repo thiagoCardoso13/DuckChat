@@ -2,6 +2,7 @@ package thiagocardoso.pap.duckchat.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        //remove o dark mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         campoEmail = findViewById(R.id.editaEmail);
         campoSenha = findViewById(R.id.editaSenha);
