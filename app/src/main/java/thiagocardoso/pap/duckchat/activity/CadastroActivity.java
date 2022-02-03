@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.helper.Base64Custom;
+import thiagocardoso.pap.duckchat.helper.UsuarioFirebase;
 import thiagocardoso.pap.duckchat.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        campoNome = findViewById(R.id.editNome);
+        campoNome = findViewById(R.id.editPerfilNome);
         campoEmail = findViewById(R.id.editEmail);
         campoSenha = findViewById(R.id.editSenha);
 
@@ -56,6 +57,7 @@ public class CadastroActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     Toast.makeText(CadastroActivity.this, "Sucesso ao cadastrar usuário!", Toast.LENGTH_SHORT).show();
+                    UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
                     finish();
                 }else{
 
