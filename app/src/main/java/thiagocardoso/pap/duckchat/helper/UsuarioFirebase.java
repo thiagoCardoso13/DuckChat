@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
+import thiagocardoso.pap.duckchat.model.Usuario;
 
 public class UsuarioFirebase {
 
@@ -73,6 +74,24 @@ public class UsuarioFirebase {
             return false;
         }
 
+
+    }
+
+    public static Usuario getDadosUsuarioLogado(){
+
+        FirebaseUser firebaseUser = getUsuarioAtual();
+
+        Usuario usuario = new Usuario();
+        usuario.setEmail(firebaseUser.getEmail());
+        usuario.setNome(firebaseUser.getDisplayName());
+
+        if (firebaseUser.getPhotoUrl()==null){
+            usuario.setFoto("");
+        }else{
+            usuario.setFoto(firebaseUser.getPhotoUrl().toString());
+        }
+
+        return usuario;
 
     }
 

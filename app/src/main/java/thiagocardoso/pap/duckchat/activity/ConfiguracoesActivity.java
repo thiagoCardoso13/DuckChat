@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -35,6 +36,7 @@ import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.helper.Permissao;
 import thiagocardoso.pap.duckchat.helper.UsuarioFirebase;
+import thiagocardoso.pap.duckchat.model.Usuario;
 
 public class ConfiguracoesActivity extends AppCompatActivity {
 
@@ -48,8 +50,10 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     private static final int SELECAO_GALERIA = 200;
     private CircleImageView circleImageViewPerfil;
     private EditText editPerfilNome;
+    private ImageView AtualizarNome;
     private StorageReference storageReference;
     private String identificadorUsuario;
+    private Usuario usuarioLogado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         //configurações iniciais
         storageReference = ConfiguracaoFirebase.getFirebaseStorage();
         identificadorUsuario = UsuarioFirebase.getIdentificadorUsuario();
+        usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
         //validar permissoes
         Permissao.validarPermissoes(permissoesNecessarias, this, 1);
@@ -67,6 +72,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         imageButtonGaleria = findViewById(R.id.imageButtonGaleria);
         circleImageViewPerfil = findViewById(R.id.circleImageViewFotoPerfil);
         editPerfilNome = findViewById(R.id.editPerfilNome);
+        AtualizarNome = findViewById(R.id.AtualizarNome);
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Configurações");
@@ -105,6 +111,23 @@ public class ConfiguracoesActivity extends AppCompatActivity {
                 Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (i.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(i, SELECAO_GALERIA);
+                }
+            }
+        });
+
+        AtualizarNome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String nome = editPerfilNome.getText().toString();
+                boolean retorno = UsuarioFirebase.atualizarNomeUsuario(nome);
+                if (retorno){
+
+                    usuarioLogado.setNome(nome);
+                    usuarioLogado.atualizar();
+
+                    Toast.makeText(ConfiguracoesActivity.this, "Nome alterado com sucesso!", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -179,7 +202,14 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     }
 
     public void atualizaFotoUsuario(Uri url){
-        UsuarioFirebase.atualizarFotoUsuario(url);
+        boolean retorno = UsuarioFirebase.atualizarFotoUsuario(url);
+       if (retorno) {
+           usuarioLogado.setFoto(url.toString());
+           usuarioLogado.atualizar();
+
+           Toast.makeText(ConfiguracoesActivity.this, "Sua foto foi alterada!", Toast.LENGTH_SHORT).show();
+
+       }
     }
 
     @Override
