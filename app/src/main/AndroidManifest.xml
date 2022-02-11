@@ -4,13 +4,10 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="true"
-        />
+        android:required="true" />
 
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +16,12 @@
         android:roundIcon="@mipmap/ic_icono_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DuckChat">
+        <activity
+            android:name=".activity.ChatActivity"
+            android:exported="false"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/Theme.DuckChat.NoActionBar"
+            android:parentActivityName=".activity.MainActivity"/>
         <activity
             android:name=".activity.ConfiguracoesActivity"
             android:exported="false"

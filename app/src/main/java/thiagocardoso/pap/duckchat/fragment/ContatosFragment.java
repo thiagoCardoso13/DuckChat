@@ -1,8 +1,10 @@
 package thiagocardoso.pap.duckchat.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,8 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import thiagocardoso.pap.duckchat.R;
+import thiagocardoso.pap.duckchat.activity.ChatActivity;
 import thiagocardoso.pap.duckchat.adapter.ContatosAdapter;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
+import thiagocardoso.pap.duckchat.helper.RecyclerItemClickListener;
+import thiagocardoso.pap.duckchat.helper.UsuarioFirebase;
 import thiagocardoso.pap.duckchat.model.Usuario;
 
 /**
@@ -35,6 +42,7 @@ public class ContatosFragment extends Fragment {
     private ArrayList<Usuario> listaContatos = new ArrayList<>();
     private DatabaseReference usuariosRef;
     private ValueEventListener valueEventListenerContatos;
+    private FirebaseUser usuarioAtual;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,6 +93,7 @@ public class ContatosFragment extends Fragment {
         //Configurações iniciais
         recyclerViewListaContatos = view.findViewById(R.id.recyclerViewListaContatos);
         usuariosRef = ConfiguracaoFirebase.getFirebaseDatabase().child("usuarios");
+        usuarioAtual = UsuarioFirebase.getUsuarioAtual();
 
         //configurar adapter
         adapter = new ContatosAdapter(listaContatos, getActivity());
@@ -95,22 +104,56 @@ public class ContatosFragment extends Fragment {
         recyclerViewListaContatos.setHasFixedSize(true);
         recyclerViewListaContatos.setAdapter(adapter);
 
+        //Configurar evento de clique no recyclerview
+        recyclerViewListaContatos.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getActivity(),
+                        recyclerViewListaContatos,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Intent i = new Intent(getActivity(), ChatActivity.class);
+
+                                startActivity(i);
+
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }
+                )
+        );
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //recuperarcontatos
+        recuperarContatos();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        recuperarConatatos();
+        //recuperarContatos();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        usuariosRef.removeEventListener(valueEventListenerContatos);
+        //usuariosRef.removeEventListener(valueEventListenerContatos);
     }
 
-    public void recuperarConatatos(){
+    public void recuperarContatos(){
 
         valueEventListenerContatos = usuariosRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -119,7 +162,12 @@ public class ContatosFragment extends Fragment {
                 for (DataSnapshot dados: snapshot.getChildren()){
 
                     Usuario usuario = dados.getValue(Usuario.class);
-                    listaContatos.add(usuario);
+
+                    String emailUsuarioAtual = usuarioAtual.getEmail();
+                    if (!emailUsuarioAtual.equals(usuario.getEmail())){
+                        listaContatos.add(usuario);
+                    }
+
 
                 }
 
