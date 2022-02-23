@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/activity_chat.xml" value="0.11851851851851852" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/activity_configuracoes.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/toolbar.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable/ic_duck_background.xml" value="0.12" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21979166666666666" />
