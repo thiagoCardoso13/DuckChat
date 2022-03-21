@@ -17,8 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuckChat">
         <activity
+            android:name=".activity.ChatttActivity"
+            android:exported="false"
+            android:label="@string/title_activity_chattt"
+            android:theme="@style/Theme.DuckChat.NoActionBar"
+            android:parentActivityName=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.ChattActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
             android:name=".activity.ChatActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.ConfiguracoesActivity"
             android:exported="false"

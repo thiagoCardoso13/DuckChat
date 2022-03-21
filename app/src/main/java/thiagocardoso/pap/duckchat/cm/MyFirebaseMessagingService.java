@@ -17,8 +17,9 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import thiagocardoso.pap.duckchat.activity.MainActivity;
+
 import thiagocardoso.pap.duckchat.R;
+import thiagocardoso.pap.duckchat.activity.MainActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

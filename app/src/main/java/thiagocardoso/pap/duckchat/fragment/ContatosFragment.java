@@ -22,8 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import thiagocardoso.pap.duckchat.activity.ChattActivity;
 import thiagocardoso.pap.duckchat.R;
-import thiagocardoso.pap.duckchat.activity.ChatActivity;
+import thiagocardoso.pap.duckchat.activity.ChatttActivity;
 import thiagocardoso.pap.duckchat.adapter.ContatosAdapter;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.helper.RecyclerItemClickListener;
@@ -113,7 +114,7 @@ public class ContatosFragment extends Fragment {
                             @Override
                             public void onItemClick(View view, int position) {
 
-                                Intent i = new Intent(getActivity(), ChatActivity.class);
+                                Intent i = new Intent(getActivity(), ChatttActivity.class);
 
                                 startActivity(i);
 
