@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-casa/app/src/main/res/layout/activity_chattt.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-casa/app/src/main/res/layout/content_chattt.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/activity_chat.xml" value="0.11851851851851852" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/activity_configuracoes.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Aluno/Desktop/DuckChat-main/DuckChat-main/app/src/main/res/layout/toolbar.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable/ic_duck_background.xml" value="0.12" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/drawable/ic_pesquisa_preto_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/activity_cadastro.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/activity_configuracoes.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/adapter_contatos.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/fragment_contatos.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/fragment_conversas.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/layout/toolbar.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/menu/menu_main.xml" value="0.25" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/mipmap-anydpi-v26/ic_ducklegalp.xml" value="0.11388888888888889" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/mipmap-anydpi-v26/ic_ducklegalp_round.xml" value="0.11388888888888889" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/mipmap-anydpi-v26/ic_icono.xml" value="0.2203125" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11388888888888889" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/DuckChat/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11388888888888889" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/drawable/bg_balao.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/drawable/fundo_mensagem_chat.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/activity_cadastro.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/activity_chattt.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/adapter_contatos.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/adapter_mensagem_destinatario.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/adapter_mensagem_remetente.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/content_chattt.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/divisor.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-chat/app/src/main/res/layout/fragment_first.xml" value="0.3625" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/activity_chat.xml" value="0.3578125" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/activity_chatt.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/activity_chattt.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/activity_configuracoes.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/adapter_contatos.xml" value="0.25" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/content_chat.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/content_chattt.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/fragment_contatos.xml" value="0.33" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/fragment_first.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/thiag/OneDrive/Desktop/DuckChat-escola/app/src/main/res/layout/toolbar.xml" value="0.19947916666666668" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

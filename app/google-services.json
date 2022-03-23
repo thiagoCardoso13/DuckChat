@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "836311685790",
+    "firebase_url": "https://duckchat-9e8f1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "duckchat-9e8f1",
+    "storage_bucket": "duckchat-9e8f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836311685790:android:b6da1fec8a72c1b8edb98f",
+        "android_client_info": {
+          "package_name": "thiagocardoso.pap.duckchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836311685790-25mtqr7hecrkrlclgcm0pk8fhj23afnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "thiagocardoso.pap.duckchat",
+            "certificate_hash": "fd9bc5aa408a956ce7764f4b59f624b389ec0274"
+          }
+        },
+        {
+          "client_id": "836311685790-3eiijhs7q7d3jgunp29knuf4g2fard4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC28gIi6PJBH-_jlSgmvgFQ9PcQm0DVeyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "836311685790-3eiijhs7q7d3jgunp29knuf4g2fard4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
