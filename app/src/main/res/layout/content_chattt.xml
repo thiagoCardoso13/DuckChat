@@ -54,11 +54,11 @@
             android:inputType="textPersonName" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageCamera"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_camera_24" />
+            app:srcCompat="@drawable/ic_photo_library_24" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fabEnviar"
