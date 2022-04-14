@@ -52,6 +52,7 @@ import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.databinding.ActivityChatttBinding;
 import thiagocardoso.pap.duckchat.helper.Base64Custom;
 import thiagocardoso.pap.duckchat.helper.UsuarioFirebase;
+import thiagocardoso.pap.duckchat.model.Conversa;
 import thiagocardoso.pap.duckchat.model.Mensagem;
 import thiagocardoso.pap.duckchat.model.Usuario;
 
@@ -132,6 +133,7 @@ public class ChatttActivity extends AppCompatActivity {
         recyclerMensagens.setLayoutManager(layoutManager);
         recyclerMensagens.setHasFixedSize(true);
         recyclerMensagens.setAdapter(adapter);
+        ((LinearLayoutManager) layoutManager).setStackFromEnd(true);
 
 
 
@@ -216,6 +218,9 @@ public class ChatttActivity extends AppCompatActivity {
                                     //salvar mensagem destinatario
                                     salvarMensagem(idUsuarioDestinatario, idUsuarioRemetente, mensagem);
 
+                                    //salvar conversa
+
+
                                     Toast.makeText(ChatttActivity.this, "Sucesso ao fazer upload da imagem.", Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -257,9 +262,24 @@ public class ChatttActivity extends AppCompatActivity {
             //Salvar mensagem para o destinatario
             salvarMensagem(idUsuarioDestinatario, idUsuarioRemetente, mensagem);
 
+            //salvar Conversa
+            salvarConversa(mensagem);
+
         }else{
             Toast.makeText(ChatttActivity.this,"Digite uma mensagem para enviar!", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void salvarConversa( Mensagem msg ){
+
+        //Salvar conversa remetente
+        Conversa conversaRemetente = new Conversa();
+        conversaRemetente.setIdRemetente( idUsuarioRemetente );
+        conversaRemetente.setIdDestinatario( idUsuarioDestinatario );
+        conversaRemetente.setUltimaMensagem( msg.getMensagem() );
+        conversaRemetente.setUsuarioExibicao( usuarioDestinatario );
+
+        conversaRemetente.salvar();
 
     }
 

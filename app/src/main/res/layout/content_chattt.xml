@@ -26,7 +26,8 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment_content_chattt" />
+        app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment_content_chattt"
+        app:stackFromEnd="true"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"

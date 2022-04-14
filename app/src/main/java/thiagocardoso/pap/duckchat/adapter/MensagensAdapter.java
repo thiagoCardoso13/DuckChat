@@ -55,17 +55,14 @@ public class MensagensAdapter extends RecyclerView.Adapter<MensagensAdapter.MyVi
         String msg = mensagem.getMensagem();
         String imagem = mensagem.getImagem();
 
-        if (imagem != null){
+        if(imagem != null){
+            holder.imagem.setVisibility(View.VISIBLE);
             Uri url = Uri.parse(imagem);
             Glide.with(context).load(url).into(holder.imagem);
-
-            //esconder o texto
             holder.mensagem.setVisibility(View.GONE);
-
         }else{
+            holder.mensagem.setVisibility(View.VISIBLE);
             holder.mensagem.setText(msg);
-
-            //esconder a imagem
             holder.imagem.setVisibility(View.GONE);
         }
 

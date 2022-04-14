@@ -140,23 +140,24 @@ public class ContatosFragment extends Fragment {
         return view;
     }
 
-    @Override
+   /* @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //recuperarcontatos
         recuperarContatos();
-    }
+    }*/
 
     @Override
     public void onStart() {
         super.onStart();
-        //recuperarContatos();
+        recuperarContatos();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //usuariosRef.removeEventListener(valueEventListenerContatos);
+        listaContatos.clear();
+        usuariosRef.removeEventListener(valueEventListenerContatos);
     }
 
     public void recuperarContatos(){
@@ -164,7 +165,7 @@ public class ContatosFragment extends Fragment {
         valueEventListenerContatos = usuariosRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                listaContatos.clear();
                 for (DataSnapshot dados: snapshot.getChildren()){
 
                     Usuario usuario = dados.getValue(Usuario.class);
