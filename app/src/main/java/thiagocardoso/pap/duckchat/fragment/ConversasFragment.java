@@ -156,12 +156,39 @@ public class ConversasFragment extends Fragment {
         conversasRef.removeEventListener( childEventListenerConversas );
     }
 
+    public void pesquisarConversas(String texto){
+        //Log.d("pesquisa",  texto );
+
+        List<Conversa> listaConversasBusca = new ArrayList<>();
+
+        for ( Conversa conversa : listaConversas ){
+
+            String nome = conversa.getUsuarioExibicao().getNome().toLowerCase();
+            String ultimaMsg = conversa.getUltimaMensagem().toLowerCase();
+
+            if( nome.contains( texto ) || ultimaMsg.contains( texto ) ){
+                listaConversasBusca.add( conversa );
+            }
+        }
+
+        adapter = new ConversasAdapter(listaConversasBusca, getActivity());
+        recyclerViewConversas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    public void recarregarConversas(){
+        adapter = new ConversasAdapter(listaConversas, getActivity());
+        recyclerViewConversas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
     public void recuperarConversas(){
 
         childEventListenerConversas = conversasRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                listaConversas.clear();
+                //listaConversas.clear();
 
                 // Recuperar conversas
                 Conversa conversa = dataSnapshot.getValue( Conversa.class );

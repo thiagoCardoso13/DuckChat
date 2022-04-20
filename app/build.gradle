@@ -60,4 +60,7 @@ dependencies {
 
     //fab
     implementation 'com.github.clans:fab:1.6.4'
+
+    //material search view
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
 }

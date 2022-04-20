@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import thiagocardoso.pap.duckchat.activity.ChattActivity;
 import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.activity.ChatttActivity;
+import thiagocardoso.pap.duckchat.activity.GrupoActivity;
 import thiagocardoso.pap.duckchat.adapter.ContatosAdapter;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.helper.RecyclerItemClickListener;
@@ -116,11 +117,19 @@ public class ContatosFragment extends Fragment {
 
                                 //recuperar usuario da lista de contatos e guardar em usuario selecionado
                                 Usuario usuarioSelecionado = listaContatos.get(position);
-                                //intente para abrir a activity de chat
-                                Intent i = new Intent(getActivity(), ChatttActivity.class);
-                                i.putExtra("chatContato", usuarioSelecionado);
-                                startActivity(i);
+                                boolean cabecalho = usuarioSelecionado.getEmail().isEmpty();
 
+                                if( cabecalho ){
+
+                                    Intent i = new Intent(getActivity(), GrupoActivity.class);
+                                    startActivity( i );
+
+                                }else {
+                                    //intente para abrir a activity de chat
+                                    Intent i = new Intent(getActivity(), ChatttActivity.class);
+                                    i.putExtra("chatContato", usuarioSelecionado );
+                                    startActivity( i );
+                                }
                             }
 
                             @Override
@@ -136,16 +145,8 @@ public class ContatosFragment extends Fragment {
                 )
         );
 
-
         return view;
     }
-
-   /* @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //recuperarcontatos
-        recuperarContatos();
-    }*/
 
     @Override
     public void onStart() {
@@ -166,6 +167,14 @@ public class ContatosFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listaContatos.clear();
+                /*Define usuário com e-mail vazio
+                 * em caso de e-mail vazio o usuário será utilizado como
+                 * cabecalho, exibindo novo grupo */
+                Usuario itemGrupo = new Usuario();
+                itemGrupo.setNome("Novo grupo");
+                itemGrupo.setEmail("");
+
+                listaContatos.add( itemGrupo );
                 for (DataSnapshot dados: snapshot.getChildren()){
 
                     Usuario usuario = dados.getValue(Usuario.class);
