@@ -20,6 +20,7 @@
             android:name=".activity.GrupoActivity"
             android:exported="false"
             android:label="@string/title_activity_grupo"
+            android:parentActivityName=".activity.MainActivity"
             android:theme="@style/Theme.DuckChat.NoActionBar" />
         <activity
             android:name=".activity.ChatttActivity"
