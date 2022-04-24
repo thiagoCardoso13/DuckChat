@@ -1,7 +1,9 @@
 package thiagocardoso.pap.duckchat.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +56,7 @@ public class GrupoActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityGrupoBinding binding;
     private Toolbar toolbar;
+    private FloatingActionButton fabAvancarCadastro;
 
 
     public void atualizarMembrosToolbar(){
@@ -77,16 +81,10 @@ public class GrupoActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         //Configuracoes iniciais
         recyclerMembros = findViewById(R.id.recyclerMembros);
         recyclerMembrosSelecionados = findViewById(R.id.recyclerMembrosSelecionados);
+        fabAvancarCadastro = findViewById(R.id.fabAvancarCadastro);
 
         usuariosRef  = ConfiguracaoFirebase.getFirebaseDatabase().child("usuarios");
         usuarioAtual = UsuarioFirebase.getUsuarioAtual();
@@ -183,6 +181,15 @@ public class GrupoActivity extends AppCompatActivity {
                 )
         );
 
+        //Configurar floating action button
+        fabAvancarCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(GrupoActivity.this, CadastroGrupoActivity.class);
+                i.putExtra("membros", (Serializable) listaMembrosSelecionados );
+                startActivity( i );
+            }
+        });
     }
 
     public void recuperarContatos(){

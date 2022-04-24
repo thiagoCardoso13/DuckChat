@@ -20,4 +20,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_grupo">GrupoActivity</string>
     <string name="title_activity_grupoo">GrupooActivity</string>
+    <string name="title_activity_cadastro_grupo">CadastroGrupoActivity</string>
 </resources>
