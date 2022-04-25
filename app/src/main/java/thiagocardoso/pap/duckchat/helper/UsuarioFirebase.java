@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.model.Usuario;
 
@@ -86,7 +87,7 @@ public class UsuarioFirebase {
         usuario.setNome(firebaseUser.getDisplayName());
 
         if (firebaseUser.getPhotoUrl()==null){
-            usuario.setFoto("");
+            usuario.setFoto("https://firebasestorage.googleapis.com/v0/b/duckchat-9e8f1.appspot.com/o/imagens%2Fperfil%2Fpadrao1.jpg?alt=media&token=fdf99dd3-2442-45a5-8d64-e50ab0d5c9f7");
         }else{
             usuario.setFoto(firebaseUser.getPhotoUrl().toString());
         }

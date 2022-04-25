@@ -207,8 +207,13 @@ public class ContatosFragment extends Fragment {
         for ( Usuario usuario : listaContatos ) {
 
             String nome = usuario.getNome().toLowerCase();
+            String email = usuario.getEmail().toLowerCase();
             if(nome.contains( texto )) {
                 listaContatosBusca.add(usuario);
+            }else{
+                if(email.contains( texto )) {
+                    listaContatosBusca.add(usuario);
+                }
             }
 
         }

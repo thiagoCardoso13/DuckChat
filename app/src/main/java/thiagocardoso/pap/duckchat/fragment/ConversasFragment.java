@@ -168,10 +168,11 @@ public class ConversasFragment extends Fragment {
 
         List<Conversa> listaConversasBusca = new ArrayList<>();
 
-        for ( Conversa conversa : listaConversas ){
+        for ( Conversa conversa : listaConversas){
 
             if( conversa.getUsuarioExibicao() != null ){
                 String nome = conversa.getUsuarioExibicao().getNome().toLowerCase();
+                String email = conversa.getUsuarioExibicao().getNome().toLowerCase();
                 String ultimaMsg = conversa.getUltimaMensagem().toLowerCase();
 
                 if( nome.contains( texto ) || ultimaMsg.contains( texto ) ){
