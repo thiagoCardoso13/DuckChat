@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +41,7 @@ import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.adapter.GrupoSelecionadoAdapter;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.databinding.ActivityCadastroGrupoBinding;
+import thiagocardoso.pap.duckchat.helper.UsuarioFirebase;
 import thiagocardoso.pap.duckchat.model.Grupo;
 import thiagocardoso.pap.duckchat.model.Usuario;
 
@@ -55,6 +58,8 @@ public class CadastroGrupoActivity extends AppCompatActivity {
     private static final int SELECAO_GALERIA = 200;
     private StorageReference storageReference;
     private Grupo grupo;
+    private FloatingActionButton fabSalvarGrupo;
+    private EditText editNomeGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +79,8 @@ public class CadastroGrupoActivity extends AppCompatActivity {
         textTotalParticipantes = findViewById(R.id.textTotalParticipantes);
         recyclerMembrosSelecionados = findViewById(R.id.recyclerMembrosGrupo);
         imageGrupo = findViewById(R.id.imageGrupo);
+        fabSalvarGrupo = findViewById(R.id.fabSalvarGrupo);
+        editNomeGrupo = findViewById(R.id.editNomeGrupo);
         grupo = new Grupo();
 
         storageReference = ConfiguracaoFirebase.getFirebaseStorage();
@@ -111,6 +118,28 @@ public class CadastroGrupoActivity extends AppCompatActivity {
         recyclerMembrosSelecionados.setLayoutManager(layoutManagerHorizontal);
         recyclerMembrosSelecionados.setHasFixedSize(true);
         recyclerMembrosSelecionados.setAdapter( grupoSelecionadoAdapter );
+
+        //Configurar floating action button
+        fabSalvarGrupo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String nomeGrupo = editNomeGrupo.getText().toString();
+
+                //adiciona à lista de membros o usuário que está logado
+                listaMembrosSelecionados.add( UsuarioFirebase.getDadosUsuarioLogado() );
+                grupo.setMembros( listaMembrosSelecionados );
+
+                grupo.setNome( nomeGrupo );
+                grupo.salvar();
+
+                //Ao apertar o botão de concluido o utilizxador vaiu direto para a tela de chat do grupo
+                Intent i = new Intent( CadastroGrupoActivity.this , ChatttActivity.class);
+                i.putExtra("chatGrupo", grupo );
+                startActivity( i );
+
+            }
+        });
 
     }
 

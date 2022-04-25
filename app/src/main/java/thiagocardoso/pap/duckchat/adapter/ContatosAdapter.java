@@ -28,6 +28,10 @@ public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyView
         this.context = c;
     }
 
+    public List<Usuario> getContatos(){
+        return this.contatos;
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -43,8 +47,10 @@ public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyView
 
         holder.nome.setText( usuario.getNome() );
         holder.email.setText( usuario.getEmail() );
+        holder.foto.setImageResource( R.drawable.padrao1 );
 
         if( usuario.getFoto() != null ){
+            holder.email.setVisibility( View.VISIBLE );
             Uri uri = Uri.parse( usuario.getFoto() );
             Glide.with( context ).load( uri ).into( holder.foto );
         }else {
@@ -52,7 +58,7 @@ public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyView
                 holder.foto.setImageResource( R.drawable.icone_grupo );
                 holder.email.setVisibility( View.GONE );
             }else {
-                holder.foto.setImageResource( R.drawable.padrao1 );
+                holder.foto.setImageResource(R.drawable.padrao1);
             }
 
         }

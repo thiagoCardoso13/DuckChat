@@ -6,13 +6,21 @@
     android:layout_height="wrap_content">
 
 <LinearLayout
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_margin="6dp"
-android:background="@drawable/bg_balao"
-android:backgroundTint="@color/cinza_claro"
-android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:background="@drawable/bg_balao"
+    android:backgroundTint="@color/cinza_claro"
+    android:orientation="vertical"
     android:layout_alignParentLeft="true">
+
+    <TextView
+        android:id="@+id/textNomeExibicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thiago Cardoso"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageMensagemFoto"

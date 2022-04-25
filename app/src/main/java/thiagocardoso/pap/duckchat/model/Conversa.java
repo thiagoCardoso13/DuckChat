@@ -10,8 +10,11 @@ public class Conversa {
     private String idDestinatario;
     private String ultimaMensagem;
     private Usuario usuarioExibicao;
+    private String isGroup;
+    private Grupo Grupo;
 
     public Conversa() {
+        this.setIsGroup("false");
     }
 
     public void salvar(){
@@ -23,6 +26,22 @@ public class Conversa {
                 .child( this.getIdDestinatario() )
                 .setValue( this );
 
+    }
+
+    public String getIsGroup() {
+        return isGroup;
+    }
+
+    public void setIsGroup(String isGroup) {
+        this.isGroup = isGroup;
+    }
+
+    public thiagocardoso.pap.duckchat.model.Grupo getGrupo() {
+        return Grupo;
+    }
+
+    public void setGrupo(thiagocardoso.pap.duckchat.model.Grupo grupo) {
+        Grupo = grupo;
     }
 
     public Usuario getUsuarioExibicao() {

@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
+import thiagocardoso.pap.duckchat.helper.Base64Custom;
 
 public class Grupo implements Serializable {
 
@@ -21,6 +22,32 @@ public class Grupo implements Serializable {
 
         String idGrupoFirebase = grupoRef.push().getKey();
         setId( idGrupoFirebase );
+
+    }
+
+    public void salvar(){
+
+        DatabaseReference database = ConfiguracaoFirebase.getFirebaseDatabase();
+        DatabaseReference grupoRef = database.child("grupos");
+
+        grupoRef.child( getId() ).setValue( this );
+
+        //Salvar conversa para membros do grupo
+        for( Usuario membro: getMembros() ){
+
+            String idRemetente = Base64Custom.codificarBase64( membro.getEmail() );
+            String idDestinatario = getId();
+
+            Conversa conversa = new Conversa();
+            conversa.setIdRemetente( idRemetente );
+            conversa.setIdDestinatario( idDestinatario );
+            conversa.setUltimaMensagem("");
+            conversa.setIsGroup("true");
+            conversa.setGrupo( this );
+
+            conversa.salvar();
+
+        }
 
     }
 

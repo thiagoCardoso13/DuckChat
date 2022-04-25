@@ -16,6 +16,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.model.Conversa;
+import thiagocardoso.pap.duckchat.model.Grupo;
 import thiagocardoso.pap.duckchat.model.Usuario;
 
 public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyViewHolder> {
@@ -26,6 +27,10 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
     public ConversasAdapter(List<Conversa> lista, Context c) {
         this.conversas = lista;
         this.context = c;
+    }
+
+    public List<Conversa> getConversas(){
+        return this.conversas;
     }
 
     @Override
@@ -40,14 +45,30 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
         Conversa conversa = conversas.get( position );
         holder.ultimaMensagem.setText( conversa.getUltimaMensagem() );
 
-        Usuario usuario = conversa.getUsuarioExibicao();
-        holder.nome.setText( usuario.getNome() );
+        if ( conversa.getIsGroup().equals("true") ){
 
-        if ( usuario.getFoto() != null ){
-            Uri uri = Uri.parse( usuario.getFoto() );
-            Glide.with( context ).load( uri ).into( holder.foto );
+            Grupo grupo = conversa.getGrupo();
+            holder.nome.setText( grupo.getNome() );
+
+            if ( grupo.getFoto() != null ){
+                Uri uri = Uri.parse( grupo.getFoto() );
+                Glide.with( context ).load( uri ).into( holder.foto );
+            }else {
+                holder.foto.setImageResource(R.drawable.padrao1);
+            }
+
         }else {
-            holder.foto.setImageResource(R.drawable.padrao1);
+            Usuario usuario = conversa.getUsuarioExibicao();
+            if (usuario != null) {
+                holder.nome.setText(usuario.getNome());
+
+                if (usuario.getFoto() != null) {
+                    Uri uri = Uri.parse(usuario.getFoto());
+                    Glide.with(context).load(uri).into(holder.foto);
+                } else {
+                    holder.foto.setImageResource(R.drawable.padrao1);
+                }
+            }
         }
 
 

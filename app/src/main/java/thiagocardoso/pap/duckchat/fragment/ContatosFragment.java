@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.activity.ChatttActivity;
@@ -113,8 +114,10 @@ public class ContatosFragment extends Fragment {
                             @Override
                             public void onItemClick(View view, int position) {
 
+                                List<Usuario> listaUsuariosAtualizada  = adapter.getContatos();
+
                                 //recuperar usuario da lista de contatos e guardar em usuario selecionado
-                                Usuario usuarioSelecionado = listaContatos.get(position);
+                                Usuario usuarioSelecionado = listaUsuariosAtualizada.get(position);
                                 boolean cabecalho = usuarioSelecionado.getEmail().isEmpty();
 
                                 if( cabecalho ){
@@ -194,6 +197,32 @@ public class ContatosFragment extends Fragment {
             }
         });
 
+    }
+
+    public void pesquisarContatos(String texto){
+        //Log.d("pesquisa",  texto );
+
+        List<Usuario> listaContatosBusca = new ArrayList<>();
+
+        for ( Usuario usuario : listaContatos ) {
+
+            String nome = usuario.getNome().toLowerCase();
+            if(nome.contains( texto )) {
+                listaContatosBusca.add(usuario);
+            }
+
+        }
+
+        adapter = new ContatosAdapter(listaContatosBusca, getActivity());
+        recyclerViewListaContatos.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    public void recarregarContatos(){
+        adapter = new ContatosAdapter(listaContatos, getActivity());
+        recyclerViewListaContatos.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 }
