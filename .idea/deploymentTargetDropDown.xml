@@ -7,20 +7,19 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\thiag\.android\avd\Pixel_API_28.avd" />
+            <value value="C:\Users\thiag\.android\avd\Nexus_5X_API_28.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-04-25T00:38:38.268456700Z" />
-    <multipleDevicesSelectedInDropDown value="true" />
+    <timeTargetWasSelectedWithDropDown value="2022-04-28T20:47:25.167862400Z" />
     <targetsSelectedWithDialog>
       <Target>
         <type value="QUICK_BOOT_TARGET" />
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\thiag\.android\avd\Pixel_API_28_2.avd" />
+            <value value="C:\Users\thiag\.android\avd\Pixel_API_28.avd" />
           </Key>
         </deviceKey>
       </Target>
@@ -29,7 +28,7 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\thiag\.android\avd\Pixel_API_28.avd" />
+            <value value="C:\Users\thiag\.android\avd\Nexus_5X_API_28.avd" />
           </Key>
         </deviceKey>
       </Target>

@@ -12,7 +12,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
@@ -23,6 +26,7 @@ import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
 import thiagocardoso.pap.duckchat.fragment.ContatosFragment;
 import thiagocardoso.pap.duckchat.fragment.ConversasFragment;
+import thiagocardoso.pap.duckchat.helper.Base64Custom;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
-                .add("Conversas", ConversasFragment.class)
-                .add("Contatos", ContatosFragment.class)
-                .create()
+                        .add("Conversas", ConversasFragment.class)
+                        .add("Contatos", ContatosFragment.class)
+                        .create()
         );
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
@@ -111,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-//chamando itens do menu
+    //chamando itens do menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -124,14 +128,14 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-//deslogando usuário
+    //deslogando usuário
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
             case R.id.menuSair:
-            deslogarUsuario();
-            finish();
+                deslogarUsuario();
+                finish();
                 break;
             case R.id.menuConfiguracoes:
                 abrirConfiguracoes();
@@ -145,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     public void deslogarUsuario(){
 
         try{
-           autenticacao.signOut();
+            autenticacao.signOut();
         }catch(Exception e){
             e.printStackTrace();
         }

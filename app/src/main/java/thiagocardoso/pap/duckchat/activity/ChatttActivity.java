@@ -400,7 +400,7 @@ public class ChatttActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-       // mensagensRef.removeEventListener(childEventListenerMensagens);
+        //mensagensRef.removeEventListener(childEventListenerMensagens);
     }
 
     private void recuperarMensagens(){

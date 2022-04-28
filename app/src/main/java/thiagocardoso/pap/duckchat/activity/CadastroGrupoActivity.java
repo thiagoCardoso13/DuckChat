@@ -133,9 +133,9 @@ public class CadastroGrupoActivity extends AppCompatActivity {
                 grupo.setNome( nomeGrupo );
                 grupo.salvar();
 
-                //Ao apertar o botão de concluido o utilizxador vaiu direto para a tela de chat do grupo
-                Intent i = new Intent( CadastroGrupoActivity.this , ChatttActivity.class);
-                i.putExtra("chatGrupo", grupo );
+                //Ao apertar o botão de concluido o utilizador vaiu direto para a tela principal
+                Intent i = new Intent( CadastroGrupoActivity.this , MainActivity.class);
+                //i.putExtra("chatGrupo", grupo );
                 startActivity( i );
 
             }

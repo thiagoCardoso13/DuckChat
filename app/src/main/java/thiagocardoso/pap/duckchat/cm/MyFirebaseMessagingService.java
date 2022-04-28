@@ -10,18 +10,26 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 
 import thiagocardoso.pap.duckchat.R;
 import thiagocardoso.pap.duckchat.activity.MainActivity;
+import thiagocardoso.pap.duckchat.config.ConfiguracaoFirebase;
+import thiagocardoso.pap.duckchat.helper.Base64Custom;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+
+    private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private FirebaseAuth autenticacao;
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage notificacao) {
@@ -75,5 +83,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
+
+        //token Pixel API 28
+        //epkORwL8QqKs6EiEyMcbym:APA91bEwrv4P4r5EQvJOLocbTFmbxZZbfuEnXU3uBHvU6caMFBpqQC6LsfyXpwmco_83jHlqUGLsvZr4H2btbaTvUsTiTsDUDnrKrXwEdfkOEUWbONQ1x-3_keuOd1pkjlEV67sGfaCa
+
+        //token pixel API 28 2
+        //eOfKN6hRRO-5qYjXGJxXkX:APA91bEIH8_sm-IfFAGqrIGprFcPspemzBGY2nxVgYXguSQrVQbD6gMTqImufPE79aWdLKg7U5DEdLlLPvzzqnmkOwa1H0dxNGTeKcGZch4OTJf4qnMBtkjcGurzzkuiq3F6cpb7c1wW
+
+        //token nexus 5
+        //dxiV2oMmT5WBwbmPuvfgXF:APA91bFUcEGMNdnYdIXIdp7yo9jqb19cmKFogR1RceA8wSmzvX-lY3BGIVcH6BJadmcYVwRJ5JLarXTtqQcAF7b5t7tFnuWOWLQs5m_AsGXaDsnQWy-pA4X8kWEFjb0lWqonBgl5HpGw
+
     }
 }
